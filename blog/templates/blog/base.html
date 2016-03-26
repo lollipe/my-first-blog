@@ -1,16 +1,22 @@
 {% load staticfiles %}
 <html>
     <head>
+    <title>Lollipe's Blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <link href="http://fonts.googleapis.com/css?family=Pacifico&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Pacifico&subset=latin,latin-ext" rel="stylesheet" type="
+        text/css">
     </head>
 <body>
     <div class="page-header">
-        <h1><a href="/">Django Girls Blog</a></h1>
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span>
+        {% if user.is_authenticated %}
+{% endif %}
+        <h1><a href="/">Lollipe's Blog</a></h1>
     </div>
-    <div class="content container">
+    <div class="content container">{% if user.is_authenticated %}
+{% endif %}
         <div class="row">
             <div class="col-md-8">
             {% block content %}
@@ -19,4 +25,4 @@
         </div>
     </div>
 </body>
-    </html>
+</html>
